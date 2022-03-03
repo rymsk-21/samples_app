@@ -4,21 +4,27 @@ require 'test_helper'
 # response:sucess ステータスコート
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
-    get static_pages_home_url
-    assert_response :success #ステータスコード200OK
+    get root_path
+    assert_response :success
     assert_select "title", "Ruby on Rails Tutorial Sample App"
   end
 
   test "should get help" do
-    get static_pages_help_url
+    get help_path
     assert_response :success #ステータスコード200OK
     assert_select "title", "Help | Ruby on Rails Tutorial Sample App"
   end
 
   test "should get about" do
-    get static_pages_about_url
+    get about_path
     assert_response :success
     assert_select "title", "About | Ruby on Rails Tutorial Sample App"
+  end
+
+  test "should get contact" do
+    get contact_path
+    assert_response :success
+    assert_select "title", "Contact | Ruby on Rails Tutorial Sample App"
   end
   # undefined local variable or method `static_pages_about_url' エラー内容：「AboutページへのURLが見つからない」
   # AbstractController::ActionNotFound エラー内容：コントローラーにアクションがない
@@ -26,4 +32,5 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   # html.erbのtitleとassert_selectは、共通
   # assert_select 特定のHTMLタグが存在するかどうかテストできる。
   # 同じコードを繰り返すことは、Rubyの「dry」（繰り返すべからず）という原則に反している。
+  # error表記　 「undefined local variable or method」は、変数やメソッドが定義されていないことが原因で発生するエラー
 end
