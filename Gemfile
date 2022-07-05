@@ -33,3 +33,5 @@ group :production do
 end
 # Windows ではタイムゾーン情報用のtzinfo-data gem を含める必 があります
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
